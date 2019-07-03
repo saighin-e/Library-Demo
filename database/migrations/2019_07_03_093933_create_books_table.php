@@ -26,8 +26,8 @@ class CreateBooksTable extends Migration
               `title` VARCHAR(300) DEFAULT NULL,
               `author_id` TINYINT(3) DEFAULT NULL,
               `condition` VARCHAR(10) DEFAULT NULL,
-              ADD FOREIGN KEY (`id`) REFERENCES `authors` (`id`) 
-              ON DELETE CASCADE ON UPDATE CASCADE 
+              CONSTRAINT `books` FOREIGN KEY (`user_id`) REFERENCES `borrowers` (`id`) 
+              ON DELETE CASCADE ON UPDATE CASCADE
         )";
 
         DB::statement($queryString);

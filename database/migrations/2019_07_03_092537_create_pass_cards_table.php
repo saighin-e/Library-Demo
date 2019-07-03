@@ -29,8 +29,8 @@ class CreatePassCardsTable extends Migration
               `id` INT(11) UNSIGNED NOT NULL PRIMARY KEY,
               `user_id` TINYINT(2) DEFAULT NULL,
               `identifier` VARCHAR(300) DEFAULT NULL,
-              ADD FOREIGN KEY (`iuser_id`) REFERENCES `borrowers` (`id`) 
-              ON DELETE CASCADE ON UPDATE CASCADE 
+              CONSTRAINT `pass_cards` FOREIGN KEY (`user_id`) REFERENCES `borrowers` (`id`) 
+              ON DELETE CASCADE ON UPDATE CASCADE
         )";
 
         DB::statement($queryString);
