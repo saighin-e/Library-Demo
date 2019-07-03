@@ -22,7 +22,7 @@ class DataBaseCRUDController extends Controller
 
 //        $this->getData();
 
-        return view('index',['compactData' => $compactData]);
+        return view('index', ['compactData' => $compactData]);
     }
 
     /**

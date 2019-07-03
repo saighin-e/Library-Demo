@@ -22,10 +22,12 @@ class CreatePassCardsTable extends Migration
 
         $queryString = "
             CREATE TABLE `pass_cards` (
-              `id` INT(11) UNSIGNED NOT NULL AUTO_INCREMENT,
+              `id` INT(11) UNSIGNED NOT NULL PRIMARY KEY,
               `user_id` TINYINT(2) DEFAULT NULL,
               `identifier` VARCHAR(300) DEFAULT NULL,
-              PRIMARY KEY (`id`)
+              FOREIGN KEY fk_cards(user_id) REFERENCES authors(id)
+              ON UPDATE CASCADE
+              ON DELETE RESTRICT
         )";
 
         DB::statement($queryString);
