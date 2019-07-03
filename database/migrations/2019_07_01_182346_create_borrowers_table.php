@@ -28,15 +28,14 @@ class CreateBorrowersTable extends Migration
 
         $queryString = "
             CREATE TABLE `borrowers` (
-              `id` INT(11) UNSIGNED NOT NULL AUTO_INCREMENT,
+              `id` INT(11) UNSIGNED NOT NULL PRIMARY KEY,
               `first_name` VARCHAR(30) NOT NULL,
               `last_name` VARCHAR(30) NOT NULL,
               `email` VARCHAR(30) NOT NULL,
               `phone` VARCHAR(12) DEFAULT NULL,
               `gender` VARCHAR(10) DEFAULT NULL,
               `age` TINYINT(3) DEFAULT NULL,
-              `books_list` VARCHAR(200) DEFAULT NULL,
-              PRIMARY KEY (`id`)
+              `books_list` VARCHAR(200) DEFAULT NULL
         )";
 
         DB::statement($queryString);

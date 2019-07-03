@@ -22,13 +22,12 @@ class CreateBooksTable extends Migration
 
         $queryString = "
             CREATE TABLE `books` (
-              `id` INT(11) UNSIGNED NOT NULL PRIMARY,
+              `id` INT(11) UNSIGNED NOT NULL PRIMARY KEY,
               `title` VARCHAR(300) DEFAULT NULL,
               `author_id` TINYINT(3) DEFAULT NULL,
               `condition` VARCHAR(10) DEFAULT NULL,
-              FOREIGN KEY fk_books(id) REFERENCES authors(id)
-              ON UPDATE CASCADE
-              ON DELETE RESTRICT
+              ADD FOREIGN KEY (`id`) REFERENCES `authors` (`id`) 
+              ON DELETE CASCADE ON UPDATE CASCADE 
         )";
 
         DB::statement($queryString);

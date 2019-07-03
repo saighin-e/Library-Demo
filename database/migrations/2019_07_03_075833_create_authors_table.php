@@ -24,12 +24,11 @@ class CreateAuthorsTable extends Migration
 
         $queryString = "
             CREATE TABLE `authors` (
-              `id` INT(11) UNSIGNED NOT NULL AUTO_INCREMENT,
+              `id` INT(11) UNSIGNED NOT NULL PRIMARY KEY,
               `name` VARCHAR(255) NOT NULL,
               `pseudonim` VARCHAR(255) DEFAULT NULL,
               `dob` VARCHAR(255) NOT NULL,
-              `book_ids` TINYINT(2) DEFAULT NULL,
-              PRIMARY KEY (`id`)
+              `book_ids` TINYINT(2) DEFAULT NULL
         )";
 
         DB::statement($queryString);

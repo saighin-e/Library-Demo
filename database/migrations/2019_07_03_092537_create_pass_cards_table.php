@@ -20,14 +20,17 @@ class CreatePassCardsTable extends Migration
 //            $table->string('identifier');
 //        });
 
+//        Schema::table('pass_cards', function(`pass_cards`) {
+//            $table->foreign('user_id')->references('id')->on('authors');
+//        });
+
         $queryString = "
             CREATE TABLE `pass_cards` (
               `id` INT(11) UNSIGNED NOT NULL PRIMARY KEY,
               `user_id` TINYINT(2) DEFAULT NULL,
               `identifier` VARCHAR(300) DEFAULT NULL,
-              FOREIGN KEY fk_cards(user_id) REFERENCES authors(id)
-              ON UPDATE CASCADE
-              ON DELETE RESTRICT
+              ADD FOREIGN KEY (`iuser_id`) REFERENCES `borrowers` (`id`) 
+              ON DELETE CASCADE ON UPDATE CASCADE 
         )";
 
         DB::statement($queryString);
