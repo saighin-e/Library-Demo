@@ -31,8 +31,8 @@ class DataBaseCRUDController extends Controller
     public function getData(): void
     {
         $borrowers = DB::table('borrowers')
-            ->join('pass_cards', 'borrowers.id', '=', 'pass_cards.user_id')
-            ->select('borrowers.*', 'pass_cards.user_id')
+            ->join('passCard', 'borrowers.id', '=', 'passCard.user_id')
+            ->select('borrowers.*', 'passCard.user_id')
             ->get();
 
 //        \Log::error($borrowers);
