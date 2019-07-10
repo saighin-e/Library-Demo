@@ -15,10 +15,10 @@ class PopulateAuthorsTable extends Migration
         $queryString = /** @lang text */
             "
                 INSERT INTO `authors` (
-                    `id`,
-                    `name`,
-                    `pseudonim`,
-                    `year_of_birth`
+                    `author_id`,
+                    `author_name`,
+                    `author_pseudonim`,
+                    `author_yob`
                 )
                 VALUES
                     (1, 'Jack London', ' ', 1875),
@@ -45,7 +45,7 @@ class PopulateAuthorsTable extends Migration
     {
         $queryString = /** @lang text */
             "
-                DELETE FROM `authors` WHERE `id` IS NOT NULL;
+                DELETE FROM `authors` WHERE `author_id` IS NOT NULL;
             ";
 
         DB::statement($queryString);

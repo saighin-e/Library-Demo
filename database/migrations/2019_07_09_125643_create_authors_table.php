@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Support\Facades\DB;
 
-class CreateBooksTable extends Migration
+class CreateAuthorsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,14 +14,13 @@ class CreateBooksTable extends Migration
     {
         $queryString = /** @lang text */
             "
-                CREATE TABLE `books` (
-                  `book_id` INT(11) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
-                  `title` VARCHAR(100) NOT NULL,
-                  `author_id` INT(11) NOT NULL, 
-                  `condition` INT(5) NULL
-                ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+                CREATE TABLE `authors` (
+                  `author_id` INT(11) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+                  `author_name` VARCHAR(50) NOT NULL,
+                  `author_pseudonim` VARCHAR(50) DEFAULT NULL,
+                  `author_yob` INT(10) DEFAULT NULL
+                ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
             ";
-
 
         DB::statement($queryString);
     }
@@ -35,7 +34,7 @@ class CreateBooksTable extends Migration
     {
         $queryString = /** @lang text */
             "
-                DROP TABLE IF EXISTS `books`;
+                DROP TABLE IF EXISTS `authors`;
             ";
 
         DB::statement($queryString);

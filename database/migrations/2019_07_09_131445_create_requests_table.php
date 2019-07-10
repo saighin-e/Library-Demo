@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Support\Facades\DB;
 
-class CreateUsersTable extends Migration
+class CreateRequestsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,13 +14,12 @@ class CreateUsersTable extends Migration
     {
         $queryString = /** @lang text */
             "
-                CREATE TABLE `users` (
-                  `id` INT(11) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
-                  `pass_id` VARCHAR(55) NOT NULL,
-                  `pass_emission_date` DATE NULL, 
-                  `pass_expiry_date` DATE NULL, 
-                  `borrow_request_id` VARCHAR(11) NULL 
-                ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+                CREATE TABLE `borrowing_requests` (
+                  `request_id` INT(11) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+                  `user_id` INT(11) UNSIGNED NOT NULL,
+                  `book_id` INT(11) UNSIGNED NOT NULL,
+                  `due_date` VARCHAR(55) NOT NULL
+                ) ENGINE=InnoDB AUTO_INCREMENT=23453 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
             ";
 
 
@@ -36,7 +35,7 @@ class CreateUsersTable extends Migration
     {
         $queryString = /** @lang text */
             "
-                DROP TABLE IF EXISTS `users`;
+                DROP TABLE IF EXISTS `borrowing_requests`;
             ";
 
         DB::statement($queryString);

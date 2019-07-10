@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Support\Facades\DB;
 
-class CreateAuthorsTable extends Migration
+class AddFkUsersRequests extends Migration
 {
     /**
      * Run the migrations.
@@ -14,12 +14,9 @@ class CreateAuthorsTable extends Migration
     {
         $queryString = /** @lang text */
             "
-                CREATE TABLE `authors` (
-                  `id` INT(11) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
-                  `name` VARCHAR(50) NOT NULL,
-                  `pseudonim` VARCHAR(50) NULL,
-                  `year_of_birth` INT(10) NOT NULL
-                ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+                ALTER TABLE `borrowing_requests` ADD CONSTRAINT users_fk FOREIGN KEY (`user_id`) 
+                REFERENCES `users`(`user_id`) 
+                ON DELETE NO ACTION ON UPDATE NO ACTION
             ";
 
 
@@ -35,7 +32,7 @@ class CreateAuthorsTable extends Migration
     {
         $queryString = /** @lang text */
             "
-                DROP TABLE IF EXISTS `authors`;
+                ALTER TABLE `borrowing_requests` DROP FOREIGN KEY users_fk;
             ";
 
         DB::statement($queryString);

@@ -16,9 +16,9 @@ class PopulateBooksTable extends Migration
             "
                 INSERT INTO `books` (
                     `book_id`,
-                    `title`,
+                    `book_title`,
                     `author_id`,
-                    `condition`
+                    `book_condition`
                 )
                 VALUES
                     (1, 'White Fang', 1, 5),

@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Support\Facades\DB;
 
-class PopulateRequestsTable extends Migration
+class PopulateBorrowingRequestsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -24,7 +24,7 @@ class PopulateRequestsTable extends Migration
     {
         $queryString = /** @lang text */
             "
-                DELETE FROM `readers` WHERE `id` IS NOT NULL;
+                DELETE FROM `borrowing_requests` WHERE `request_id` IS NOT NULL;
             ";
 
         DB::statement($queryString);
@@ -40,9 +40,9 @@ class PopulateRequestsTable extends Migration
         $queryString = /** @lang text */
             "
                 INSERT INTO `borrowing_requests` (
-                    `id`,
+                    `request_id`,
                     `user_id`,
-                    `book_ids`,
+                    `book_id`,
                     `due_date`
                 )
                 VALUES
