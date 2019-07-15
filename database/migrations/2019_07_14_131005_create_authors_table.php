@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Support\Facades\DB;
 
-class AddFkUsersRequests extends Migration
+class CreateAuthorsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,11 +14,13 @@ class AddFkUsersRequests extends Migration
     {
         $queryString = /** @lang text */
             "
-                ALTER TABLE `borrowing_requests` ADD CONSTRAINT users_fk FOREIGN KEY (`user_id`) 
-                REFERENCES `users`(`user_id`) 
-                ON DELETE NO ACTION ON UPDATE NO ACTION
+                CREATE TABLE `authors` (
+                  `id` INT(11) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+                  `name` VARCHAR(50) NOT NULL,
+                  `pseudonim` VARCHAR(50) NOT NULL,
+                  `year_of_birth` INT(10) NOT NULL
+                ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
             ";
-
 
         DB::statement($queryString);
     }
@@ -32,7 +34,7 @@ class AddFkUsersRequests extends Migration
     {
         $queryString = /** @lang text */
             "
-                ALTER TABLE `borrowing_requests` DROP FOREIGN KEY users_fk;
+                DROP TABLE IF EXISTS `authors`;
             ";
 
         DB::statement($queryString);

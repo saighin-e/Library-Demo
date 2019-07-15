@@ -1,11 +1,9 @@
 <?php
 
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Support\Facades\DB;
 
-class CreatePassTable extends Migration
+class CreateOrdersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -16,12 +14,13 @@ class CreatePassTable extends Migration
     {
         $queryString = /** @lang text */
             "
-                CREATE TABLE `pass_cards` (
-                  `pass_card_id` INT(11) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
-                  `pass_code` VARCHAR(55) NOT NULL,
+                CREATE TABLE `orders` (
+                  `id` INT(11) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
                   `user_id` INT(11) UNSIGNED NOT NULL,
-                  `pass_emission_date` DATE NULL, 
-                  `pass_expiry_date` DATE NULL 
+                  `due_date` INT(11) UNSIGNED NOT NULL,
+                  
+                CONSTRAINT `users_orders_fk_3` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) 
+                ON UPDATE CASCADE ON DELETE CASCADE 
                 ) ENGINE=InnoDB AUTO_INCREMENT=23453 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
             ";
 
@@ -38,7 +37,7 @@ class CreatePassTable extends Migration
     {
         $queryString = /** @lang text */
             "
-                DROP TABLE IF EXISTS `pass_cards`;
+                DROP TABLE IF EXISTS `orders`;
             ";
 
         DB::statement($queryString);
