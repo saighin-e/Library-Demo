@@ -24,7 +24,7 @@ class CreatePermitsTable extends Migration
                   
                CONSTRAINT `users_permits_fk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) 
                ON UPDATE CASCADE ON DELETE CASCADE 
-               ) ENGINE=InnoDB AUTO_INCREMENT=23453 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+               ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
             ";
 
         // insert into users values(1, unhex(replace(uuid(),'-','')), 1, '22-10-2019', '22-10-2020');
