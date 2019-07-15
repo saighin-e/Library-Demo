@@ -12,7 +12,7 @@ class CreateOrderBooksTable extends Migration
      */
     public function up(): void
     {
-        //        PRIMARY KEY (`ticket_id`, `nomination_id`)
+        //        PRIMARY KEY (`order_id`, `book_id`)
 
         $queryString = /** @lang text */
             "
@@ -23,7 +23,7 @@ class CreateOrderBooksTable extends Migration
                 CONSTRAINT `order_books_unique` UNIQUE (`order_id`, `book_id`),
                   
                 CONSTRAINT `order_books_order_fk_4` FOREIGN KEY (`order_id`) REFERENCES `orders` (`id`) 
-                ON UPDATE CASCADE ON DELETE NO CASCADE, 
+                ON UPDATE CASCADE ON DELETE CASCADE, 
                 
                 CONSTRAINT `order_books_books_fk_5` FOREIGN KEY (`book_id`) REFERENCES `books` (`id`) 
                 ON UPDATE CASCADE ON DELETE CASCADE
