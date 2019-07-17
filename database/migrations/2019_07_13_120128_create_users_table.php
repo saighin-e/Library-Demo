@@ -20,7 +20,9 @@ class CreateUsersTable extends Migration
                   `name` VARCHAR(100) NOT NULL,
                   `last_name` VARCHAR(100) NOT NULL,
                   `email` VARCHAR(30) NOT NULL,
-                  `year_of_birth` INT(4) NOT NULL
+                  `address` VARCHAR(100) NOT NULL,
+                  `phone` VARCHAR(50) NOT NULL,
+                  `year_of_birth` INT(5) NOT NULL
                 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
             ";
 

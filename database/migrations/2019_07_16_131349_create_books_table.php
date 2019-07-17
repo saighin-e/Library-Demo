@@ -17,12 +17,9 @@ class CreateBooksTable extends Migration
                 CREATE TABLE `books` (
                   `id` INT(11) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
                   `title` VARCHAR(100) NOT NULL,
-                  `author_id` INT(11) UNSIGNED NOT NULL, 
-                  `condition` INT(5) NOT NULL,
-                  
-                CONSTRAINT `authors_books_fk_1` FOREIGN KEY (`author_id`) REFERENCES `authors` (`id`) 
-                ON UPDATE CASCADE ON DELETE CASCADE 
-                ) ENGINE=InnoDB AUTO_INCREMENT=23453 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci
+                  `condition` ENUM('mint', 'new', 'medium', 'poor', 'needs replacement'),
+                  `date_added` DATE 
+                ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci
             ";
 
 

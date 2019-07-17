@@ -17,7 +17,7 @@ class CreatePermitsTable extends Migration
             "
                CREATE TABLE `permits` (
                   `id` INT(11) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
-                  `code_uuid` BINARY(16) NOT NULL,
+                  `code_uuid` BINARY(32) NOT NULL,
                   `user_id` INT(11) UNSIGNED NOT NULL,
                   `emission_date` DATE, 
                   `expiry_date` DATE,
