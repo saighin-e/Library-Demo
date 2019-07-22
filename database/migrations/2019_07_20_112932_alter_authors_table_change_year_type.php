@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Support\Facades\DB;
 
-class CreateAuthorsTable extends Migration
+class AlterAuthorsTableChangeYearType extends Migration
 {
     /**
      * Run the migrations.
@@ -14,12 +14,7 @@ class CreateAuthorsTable extends Migration
     {
         $queryString = /** @lang text */
             "
-                CREATE TABLE `authors` (
-                  `id` INT(11) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
-                  `name` VARCHAR(50) NOT NULL,
-                  `pseudonim` VARCHAR(50) NOT NULL,
-                  `year_of_birth` INT(4) NOT NULL
-                ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+                ALTER TABLE `authors` MODIFY `year_of_birth` DATE NOT NULL;
             ";
 
         DB::statement($queryString);
@@ -34,7 +29,7 @@ class CreateAuthorsTable extends Migration
     {
         $queryString = /** @lang text */
             "
-                DROP TABLE IF EXISTS `authors`;
+                ALTER TABLE `authors` MODIFY `year_of_birth` INT(4) NOT NULL;
             ";
 
         DB::statement($queryString);

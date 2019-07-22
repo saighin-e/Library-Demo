@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Support\Facades\DB;
 
-class CreateAuthorsBooksTable extends Migration
+class CreateCommentsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,19 +14,18 @@ class CreateAuthorsBooksTable extends Migration
     {
         $queryString = /** @lang text */
             "
-                CREATE TABLE `authors_books` (
-                  `author_id` INT(11) UNSIGNED NOT NULL,
+                CREATE TABLE `comments` (
                   `book_id` INT(11) UNSIGNED NOT NULL,
-                PRIMARY KEY (`author_id`, `book_id`),
+                  `summary` VARCHAR(90) NOT NULL,
+                  `comment_text` LONGTEXT NOT NULL,
+                  `rating` ENUM('excellent', 'very good', 'good or medium', 'boring', 'bad'),
+                  `date` DATE NOT NULL,
+                  `user_name` VARCHAR(90) NULL,
                   
-                CONSTRAINT `fk1` FOREIGN KEY (`author_id`) REFERENCES `authors` (`id`) 
-                ON UPDATE NO ACTION ON DELETE NO ACTION, 
-                
-                CONSTRAINT `fk2` FOREIGN KEY (`book_id`) REFERENCES `books` (`id`) 
+                CONSTRAINT `fk3` FOREIGN KEY (`book_id`) REFERENCES `books` (`id`) 
                 ON UPDATE NO ACTION ON DELETE NO ACTION
-                ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+                ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
             ";
-
 
         DB::statement($queryString);
     }
@@ -40,7 +39,7 @@ class CreateAuthorsBooksTable extends Migration
     {
         $queryString = /** @lang text */
             "
-                DROP TABLE IF EXISTS `authors_books`;
+                DROP TABLE IF EXISTS `comments`;
             ";
 
         DB::statement($queryString);

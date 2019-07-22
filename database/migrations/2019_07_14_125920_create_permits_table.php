@@ -12,7 +12,6 @@ class CreatePermitsTable extends Migration
      */
     public function up(): void
     {
-
         $queryString = /** @lang text */
             "
                CREATE TABLE `permits` (
@@ -21,13 +20,12 @@ class CreatePermitsTable extends Migration
                   `user_id` INT(11) UNSIGNED NOT NULL,
                   `emission_date` DATE, 
                   `expiry_date` DATE,
+                  UNIQUE KEY unique_user_id_key (`user_id`),
                   
                CONSTRAINT `users_permits_fk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) 
                ON UPDATE CASCADE ON DELETE CASCADE 
                ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
             ";
-
-        // insert into users values(1, unhex(replace(uuid(),'-','')), 1, '22-10-2019', '22-10-2020');
 
         DB::statement($queryString);
     }
