@@ -43,29 +43,30 @@ class CommentsTableSeeder extends Seeder
                     `comment_text`,
                     `rating`,
                     `date`,
-                    `user_name`
+                    `user_name`, 
+                    `user_id`
                 )
                 VALUES
-                    (1, 'Liked the book!', '{$comment1}', 'excellent', '{$this->generateRandomDate()}', 'Anonymous'),          
-                    (7, 'Enjoyed it. ', '{$comment2}', 'good or medium', '{$this->generateRandomDate()}', 'El Barto'),
-                    (13, 'Boring, do not attempt reading.', '{$comment3}',  'excellent', '{$this->generateRandomDate()}', 'Vasea Pupkin'),
-                    (24, 'Too heavy on the mind.', '{$comment4}', 'bad', '{$this->generateRandomDate()}', 'Allan Woods'),
-                    (5, 'Super book.', '{$comment5}', 'very good', '{$this->generateRandomDate()}', 'Edgar Poe'),
-                    (1, 'Recommended for reading!', '{$comment6}', 'very good', '{$this->generateRandomDate()}', 'No Nick'),
-                    (7, 'The best book I have ever read.', '{$comment7}', 'bad', '{$this->generateRandomDate()}', 'Anonymous'),
-                    (8, 'Will read it to my children.', '{$comment8}', 'very good', '{$this->generateRandomDate()}', 'Stella Artois'),
-                    (9, 'Recommend to read to any school boy or girl.', '{$comment9}', 'excellent', '{$this->generateRandomDate()}', 'Jean Vlajean'),
-                    (10, 'Great plot, unexpected turns.', '{$comment10}', 'bad', '{$this->generateRandomDate()}', 'Random Name'),
-                    (1, 'Best book in my life.', '{$comment11}', 'very good', '{$this->generateRandomDate()}', 'Anonymous'),
-                    (12, 'My favorite author and his masterpiece.', '{$comment12}', 'excellent', '{$this->generateRandomDate()}', 'Test'),
-                    (13, 'Looking for more.', '{$comment13}', 'boring', '{$this->generateRandomDate()}', 'Test2'),
-                    (14, 'Like it a lot.', '{$comment14}', 'bad', '{$this->generateRandomDate()}', 'Anonymous'),
-                    (19, 'My preferred book during childhood.', '{$comment15}', 'good or medium', '{$this->generateRandomDate()}', 'Name1'),
-                    (16, 'Check it out for sure.', '{$comment16}', 'good or medium', '{$this->generateRandomDate()}', 'Name2'),
-                    (17, 'You must read this one.', '{$comment17}', 'good or medium', '{$this->generateRandomDate()}', 'Name3'),
-                    (18, 'Fall asleep during reading.', '{$comment18}', 'excellent', '{$this->generateRandomDate()}', 'Name4'),
-                    (19, 'Very difficult to understand and focus upon.', '{$comment19}', 'boring', '{$this->generateRandomDate()}', 'Name5'),
-                    (20, 'In one word - just shining', '{$comment20}', 'boring',  '{$this->generateRandomDate()}', 'Anonymous')
+                    (1, 'Liked the book!', '{$comment1}', 'excellent', '{$this->generateRandomDate()}', 'Anonymous', null),          
+                    (7, 'Enjoyed it. ', '{$comment2}', 'good or medium', '{$this->generateRandomDate()}', 'El Barto', 2),
+                    (13, 'Boring, do not attempt reading.', '{$comment3}',  'excellent', '{$this->generateRandomDate()}', 'Vasea Pupkin', 1),
+                    (24, 'Too heavy on the mind.', '{$comment4}', 'bad', '{$this->generateRandomDate()}', 'Allan Woods', 6),
+                    (5, 'Super book.', '{$comment5}', 'very good', '{$this->generateRandomDate()}', 'Edgar Poe', 10),
+                    (1, 'Recommended for reading!', '{$comment6}', 'very good', '{$this->generateRandomDate()}', 'No Nick', null),
+                    (7, 'The best book I have ever read.', '{$comment7}', 'bad', '{$this->generateRandomDate()}', 'Anonymous', null),
+                    (8, 'Will read it to my children.', '{$comment8}', 'very good', '{$this->generateRandomDate()}', 'Stella Artois', 7),
+                    (9, 'Recommend to read to any school boy or girl.', '{$comment9}', 'excellent', '{$this->generateRandomDate()}', 'Jean Vlajean', null),
+                    (10, 'Great plot, unexpected turns.', '{$comment10}', 'bad', '{$this->generateRandomDate()}', 'Random Name', null),
+                    (1, 'Best book in my life.', '{$comment11}', 'very good', '{$this->generateRandomDate()}', 'Anonymous', null),
+                    (12, 'My favorite author and his masterpiece.', '{$comment12}', 'excellent', '{$this->generateRandomDate()}', 'Test', null),
+                    (13, 'Looking for more.', '{$comment13}', 'boring', '{$this->generateRandomDate()}', 'Test2', null),
+                    (14, 'Like it a lot.', '{$comment14}', 'bad', '{$this->generateRandomDate()}', 'Anonymous', null),
+                    (19, 'My preferred book during childhood.', '{$comment15}', 'good or medium', '{$this->generateRandomDate()}', 'Name1', null),
+                    (16, 'Check it out for sure.', '{$comment16}', 'good or medium', '{$this->generateRandomDate()}', 'Name2', null),
+                    (17, 'You must read this one.', '{$comment17}', 'good or medium', '{$this->generateRandomDate()}', 'Name3', null),
+                    (18, 'Fall asleep during reading.', '{$comment18}', 'excellent', '{$this->generateRandomDate()}', 'Name4', null),
+                    (19, 'Very difficult to understand and focus upon.', '{$comment19}', 'boring', '{$this->generateRandomDate()}', 'Name5', null),
+                    (20, 'In one word - just shining', '{$comment20}', 'boring',  '{$this->generateRandomDate()}', 'Anonymous', null)
             ";
 
         DB::statement($queryString);

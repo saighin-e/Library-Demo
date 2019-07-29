@@ -19,7 +19,7 @@ class CreateAuthorsTable extends Migration
                   `name` VARCHAR(50) NOT NULL,
                   `pseudonim` VARCHAR(50) NOT NULL,
                   `year_of_birth` INT(4) NOT NULL
-                ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+                ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
             ";
 
         DB::statement($queryString);

@@ -21,9 +21,13 @@ class CreateCommentsTable extends Migration
                   `rating` ENUM('excellent', 'very good', 'good or medium', 'boring', 'bad'),
                   `date` DATE NOT NULL,
                   `user_name` VARCHAR(90) NULL,
+                  `user_id` INT(11) UNSIGNED NULL,
                   
                 CONSTRAINT `fk3` FOREIGN KEY (`book_id`) REFERENCES `books` (`id`) 
-                ON UPDATE NO ACTION ON DELETE NO ACTION
+                ON UPDATE CASCADE ON DELETE CASCADE, 
+                
+                CONSTRAINT `fk4` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)
+                ON UPDATE CASCADE ON DELETE CASCADE 
                 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
             ";
 

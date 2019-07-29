@@ -18,7 +18,7 @@ class CreatePermitsTable extends Migration
                   `id` INT(11) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
                   `code_uuid` BINARY(32) NOT NULL,
                   `user_id` INT(11) UNSIGNED NOT NULL,
-                  `emission_date` DATE, 
+                  `emission_date` DATETIME DEFAULT CURRENT_TIMESTAMP,
                   `expiry_date` DATE,
                   UNIQUE KEY unique_user_id_key (`user_id`),
                   
