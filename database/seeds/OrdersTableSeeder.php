@@ -29,20 +29,9 @@ class OrdersTableSeeder extends Seeder
 
         $queryString2 = /** @lang text */
             "
-                INSERT INTO `user_orders` (
-                    `due_date`
-                )
-                VALUES
-                    ( '{$this->generateDueDate()}'),
-                    ( '{$this->generateDueDate()}'),
-                    ( '{$this->generateDueDate()}'),
-                    ( '{$this->generateDueDate()}'),
-                    ( '{$this->generateDueDate()}'),
-                    ( '{$this->generateDueDate()}'),
-                    ( '{$this->generateDueDate()}'),
-                    ( '{$this->generateDueDate()}'),
-                    ( '{$this->generateDueDate()}'),
-                    ( '{$this->generateDueDate()}')
+                UPDATE `user_orders`
+                SET `due_date` = '{$this->generateDueDate()}'
+                WHERE `due_date` IS NULL;
             ";
 
         DB::statement($queryString2);
