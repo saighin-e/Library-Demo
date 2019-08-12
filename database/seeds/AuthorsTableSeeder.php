@@ -18,7 +18,7 @@ class AuthorsTableSeeder extends Seeder
                     `id`,
                     `name`,
                     `pseudonim`, 
-                    `year_of_birth`
+                    `date_of_birth`
                 )
                 VALUES
                     (1, 'Jack London', ' ', '1875-01-01'),

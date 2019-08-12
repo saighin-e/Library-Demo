@@ -19,11 +19,11 @@ class CreateAuthorsBooksTable extends Migration
                   `book_id` INT(11) UNSIGNED NOT NULL,
                 PRIMARY KEY (`author_id`, `book_id`),
                   
-                CONSTRAINT `fk1` FOREIGN KEY (`author_id`) REFERENCES `authors` (`id`) 
-                ON UPDATE NO ACTION ON DELETE NO ACTION, 
+                CONSTRAINT `fk1_authors_authors_id` FOREIGN KEY (`author_id`) REFERENCES `authors` (`id`) 
+                ON UPDATE CASCADE ON DELETE CASCADE, 
                 
-                CONSTRAINT `fk2` FOREIGN KEY (`book_id`) REFERENCES `books` (`id`) 
-                ON UPDATE NO ACTION ON DELETE NO ACTION
+                CONSTRAINT `fk2_books_book_id` FOREIGN KEY (`book_id`) REFERENCES `books` (`id`) 
+                ON UPDATE CASCADE ON DELETE CASCADE
                 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
             ";
 

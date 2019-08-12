@@ -19,13 +19,13 @@ class CreateOrderAuthorsUsersBooksTable extends Migration
                     `book_id` INT(11) UNSIGNED NOT NULL,
                     `author_id` INT(11) UNSIGNED NOT NULL,
                     
-                   CONSTRAINT `fk_7` FOREIGN KEY (`order_id`) REFERENCES `user_orders` (`id`) 
+                   CONSTRAINT `fk_7_order_order_id` FOREIGN KEY (`order_id`) REFERENCES `user_orders` (`id`) 
                    ON UPDATE CASCADE ON DELETE CASCADE,
                    
-                   CONSTRAINT `fk_8` FOREIGN KEY (`book_id`) REFERENCES `books` (`id`) 
+                   CONSTRAINT `fk_8_book_books_id` FOREIGN KEY (`book_id`) REFERENCES `books` (`id`) 
                    ON UPDATE CASCADE ON DELETE CASCADE,
                    
-                   CONSTRAINT `fk_9` FOREIGN KEY (`author_id`) REFERENCES `authors` (`id`) 
+                   CONSTRAINT `fk_9_authors_author_id` FOREIGN KEY (`author_id`) REFERENCES `authors` (`id`) 
                    ON UPDATE CASCADE ON DELETE CASCADE
                 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
             ";
